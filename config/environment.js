@@ -6,7 +6,7 @@ module.exports = function(environment) {
     modulePrefix: 'drone-map',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'auto',  
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -22,6 +22,10 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  ENV.i18n = {
+    defaultLocale: 'pt-br'
   };
 
   if (environment === 'development') {
