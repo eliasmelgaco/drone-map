@@ -5,20 +5,14 @@ moduleForComponent('app-frame', 'Integration | Component | app frame', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('Showing areas of interest', function(assert) {
+  assert.expect(1);
 
   this.render(hbs`{{app-frame}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#app-frame}}
-      template block text
-    {{/app-frame}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(
+    this.$('.test-areas-interest').text().trim(),
+    'AREAS OF INTEREST',
+    'AREAS OF INTEREST showing'
+  );
 });

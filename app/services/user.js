@@ -5,7 +5,7 @@ export default Service.extend({
   i18n: inject(),
 
   email: null,
-  logo: 'https://lh5.googleusercontent.com/-dMTcw5b2Yuo/AAAAAAAAAAI/AAAAAAAACTk/lZO3PtkqeqI/photo.jpg',
+  logo: null,
   location: {
     lat: null,
     lng: null

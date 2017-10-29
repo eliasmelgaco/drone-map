@@ -5,20 +5,63 @@ moduleForComponent('profile/profile-logo', 'Integration | Component | profile/pr
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('Modal not showing', function(assert) {
+  assert.expect(1);
 
   this.render(hbs`{{profile/profile-logo}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#profile/profile-logo}}
-      template block text
-    {{/profile/profile-logo}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(
+    this.$('.test-modal').length,
+    0,
+    'Modal not showing'
+  );
 });
+
+test('Modal showing', function(assert) {
+  assert.expect(1);
+
+  this.set('hasShowingModal', true);
+
+  this.render(hbs`{{profile/profile-logo hasShowingModal=hasShowingModal}}`);
+
+  assert.equal(
+    this.$('.test-modal').length,
+    1,
+    'Modal showing'
+  );
+});
+
+test('Button show modal', function(assert) {
+  assert.expect(2);
+
+  this.render(hbs`{{profile/profile-logo}}`);
+
+  assert.equal(
+    this.$('.test-modal').length,
+    0,
+    'Modal not showing'
+  );
+
+  this.$('.test-btn-avatar').click();
+
+  assert.equal(
+    this.$('.test-modal').length,
+    1,
+    'Modal showing'
+  );
+});
+
+// test('Action toggleLogin is triggered when element is clicked', function(assert) {
+//   assert.expect(1);
+
+//   this.set('toggleLogin', () => {
+//     assert.ok(
+//       true,
+//       'Action was fired'
+//     );
+//   });
+
+//   this.render(hbs`{{profile/profile-logo toggleLogin=(action toggleLogin)}}`);
+
+//   this.$('.test-btn-avatar').click();
+// });

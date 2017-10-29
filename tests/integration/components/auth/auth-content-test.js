@@ -5,20 +5,21 @@ moduleForComponent('auth/auth-content', 'Integration | Component | auth/auth con
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('Default render', function(assert) {
+  assert.expect(1);
 
-  this.render(hbs`{{auth/auth-content}}`);
+  this.setProperties({
+    onCloseModal: () => {
+      assert.ok(
+        true,
+        'Action was fired'
+      );
+    }
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{auth/auth-content
+    onCloseModal=(action onCloseModal)
+  }}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#auth/auth-content}}
-      template block text
-    {{/auth/auth-content}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.$('.test-close').click();
 });

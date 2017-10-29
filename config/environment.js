@@ -25,7 +25,7 @@ module.exports = function(environment) {
   };
 
   ENV.i18n = {
-    defaultLocale: 'pt-br'
+    defaultLocale: 'en-us' // pt-br or es-es
   };
 
   if (environment === 'development') {

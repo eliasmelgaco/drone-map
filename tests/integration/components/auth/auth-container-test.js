@@ -5,20 +5,30 @@ moduleForComponent('auth/auth-container', 'Integration | Component | auth/auth c
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('Defaut render with login', function(assert) {
+  assert.expect(1);
 
-  this.render(hbs`{{auth/auth-container}}`);
+  this.set('hasSignup', false);
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{auth/auth-container hasSignup=hasSignup}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#auth/auth-container}}
-      template block text
-    {{/auth/auth-container}}
-  `);
+  assert.equal(
+    this.$('.teste-social').length,
+    1,
+    'Login showing'
+  );
+});
 
-  assert.equal(this.$().text().trim(), 'template block text');
+test('Defaut render with signup', function(assert) {
+  assert.expect(1);
+
+  this.set('hasSignup', true);
+
+  this.render(hbs`{{auth/auth-container hasSignup=hasSignup}}`);
+
+  assert.equal(
+    this.$('.test-signup').length,
+    1,
+    'Signup showing'
+  );
 });
