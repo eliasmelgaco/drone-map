@@ -1,0 +1,21 @@
+<a {{action 'toggleLogin'}} class="btn-avatar test-btn-avatar">
+  <div class="div-avatar">
+    {{#if user.logo}}
+      <img size=40 src={{user.logo}} class="avatar">
+    {{else}}
+      LOGA AI
+    {{/if}}
+  </div>
+</a>
+
+{{#if hasShowingModal}}
+  <div class="test-modal">
+    {{#modal-dialog
+      translucentOverlay=true
+    }}
+      {{auth/auth-content
+        onCloseModal=(action (mut hasShowingModal) false)
+      }}
+    {{/modal-dialog}}
+  </div>
+{{/if}}

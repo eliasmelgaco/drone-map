@@ -1,0 +1,21 @@
+.profile-logo {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+
+  > .btn-avatar {
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: 1rem;
+
+    > .div-avatar {
+      > .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

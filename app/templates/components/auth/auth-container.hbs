@@ -1,0 +1,22 @@
+<div class="container-tab">
+  <ul>
+    <li class={{currentTabLogin}} {{action 'toggleTabLogin'}}>
+      <div>{{t 'signup.login'}}</div>
+    </li>
+    <li class={{currentTabSignup}} {{action 'toggleTabSignup'}}>
+      <div>{{t 'signup.signup'}}</div>
+    </li>
+  </ul>
+</div>
+{{#if hasSignup}}
+  <div class="singup test-signup">
+    {{!-- IMPLEMENTAR AQUI O CADASTRO --}}
+  </div>
+{{else}}
+  <div class="social teste-social">
+    <button class="btn-social">
+      
+    </button> 
+  </div>
+  <div class="btn-submit"></div>
+{{/if}}
